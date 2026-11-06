@@ -6,7 +6,7 @@ if (!resposta.ok) {
   console.error(`FALHA: ${url} respondeu ${resposta.status}`);
   process.exit(1);
 }
-const html = await resposta.text();
+const html = (await resposta.text()).replace(/<!--[\s\S]*?-->/g, "");
 
 const ENTIDADES = {
   "&amp;": "&",
@@ -18,14 +18,21 @@ const ENTIDADES = {
   "&nbsp;": " ",
 };
 
-const textoVisivel = html
-  .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
-  .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
-  .replace(/<head\b[\s\S]*?<\/head>/gi, " ")
-  .replace(/<!--[\s\S]*?-->/g, "")
-  .replace(/<[^>]+>/g, " ")
-  .replace(/&[#\w]+;/g, (entidade) => ENTIDADES[entidade] ?? entidade)
-  .replace(/\s+/g, " ");
+const decodificar = (texto) =>
+  texto.replace(/&[#\w]+;/g, (entidade) => ENTIDADES[entidade] ?? entidade);
+
+const textoVisivel = decodificar(
+  html
+    .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
+    .replace(/<head\b[\s\S]*?<\/head>/gi, " ")
+    .replace(/<[^>]+>/g, " "),
+).replace(/\s+/g, " ");
+
+const titulo = decodificar(html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "");
+const descricao = decodificar(
+  html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "",
+);
 
 const NO_HTML = [
   '<html lang="pt-BR"',
@@ -51,18 +58,22 @@ const NO_TEXTO = [
 ];
 
 const PROIBIDO =
-  /card[aá]pio|coffee break|pre[cç]o|R\$|fa[cç]a seu pedido|pe[cç]a agora|delivery|\breserva\b|undefined|Jardim Edith|Sabores Edite|\b(19|20)\d{2}\b/i;
+  /card[aá]pio|coffee break|pre[cç]o|R\$|\bpedidos?\b|pe[cç]a agora|\bencomend|delivery|\breserv(a|as|ar|e)\b|undefined|Jardim Edith|Sabores Edite|\b(19|20)\d{2}\b/i;
 
 const falhas = [];
 for (const trecho of NO_HTML) {
   if (!html.includes(trecho)) falhas.push(`falta no HTML: ${trecho}`);
 }
-if (html.includes('href=""')) falhas.push('link vazio: href=""');
+if (/href="(undefined)?"/.test(html)) falhas.push("link vazio ou undefined");
+if (!titulo) falhas.push("falta o título da página");
+if (!descricao) falhas.push("falta a descrição da página");
 for (const trecho of NO_TEXTO) {
   if (!textoVisivel.includes(trecho)) falhas.push(`falta no texto: ${trecho}`);
 }
-const proibido = textoVisivel.match(PROIBIDO);
-if (proibido) falhas.push(`texto proibido: ${proibido[0]}`);
+for (const texto of [textoVisivel, titulo, descricao]) {
+  const proibido = texto.match(PROIBIDO);
+  if (proibido) falhas.push(`texto proibido: ${proibido[0]}`);
+}
 
 if (falhas.length > 0) {
   falhas.forEach((falha) => console.error(`FALHA: ${falha}`));
