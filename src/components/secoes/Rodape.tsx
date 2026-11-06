@@ -7,7 +7,7 @@ export function Rodape() {
 
   return (
     <footer>
-      <div className="legenda mx-auto flex max-w-5xl flex-col gap-2 px-4 pb-8">
+      <div className="legenda mx-auto flex max-w-6xl flex-col gap-2 px-4 pb-8">
         <p>
           História baseada na matéria “
           {materia.url ? (

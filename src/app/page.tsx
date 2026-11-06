@@ -1,27 +1,34 @@
 import { Abertura } from "@/components/secoes/Abertura";
+import { Cabecalho } from "@/components/secoes/Cabecalho";
 import { Contato } from "@/components/secoes/Contato";
 import { Historia } from "@/components/secoes/Historia";
 import { Horarios } from "@/components/secoes/Horarios";
 import { Rodape } from "@/components/secoes/Rodape";
-import { FaixaLadrilho } from "@/components/ui/FaixaLadrilho";
-import { FotoReservada } from "@/components/ui/FotoReservada";
+import { FundoOrganico } from "@/components/ui/FundoOrganico";
 
 export default function Page() {
   return (
     <>
-      <FaixaLadrilho />
-      <main className="mx-auto flex max-w-5xl flex-col gap-16 px-4 py-8 md:py-16">
-        <Abertura />
-        <div className="grid gap-8 md:grid-cols-5">
-          <div className="md:col-span-3">
-            <Contato />
-          </div>
-          <div className="md:col-span-2">
-            <Horarios />
+      <Cabecalho />
+      <main>
+        {/* Sobe a altura do cabeçalho para o fundo começar no topo da tela. */}
+        <div className="relative isolate -mt-28 overflow-hidden pt-28 md:-mt-36 md:pt-36">
+          <FundoOrganico />
+          <Abertura />
+          <div className="mx-auto max-w-6xl px-4 pt-8 pb-16 md:pt-0">
+            <div className="grid gap-8 rounded-grande bg-superficie p-4 shadow-cartao md:grid-cols-5 md:p-8">
+              <div className="md:col-span-3">
+                <Contato />
+              </div>
+              <div className="md:col-span-2">
+                <Horarios />
+              </div>
+            </div>
           </div>
         </div>
-        <FotoReservada rotulo="a cozinha da cooperativa" proporcao="21 / 9" />
-        <Historia />
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <Historia />
+        </div>
       </main>
       <Rodape />
     </>

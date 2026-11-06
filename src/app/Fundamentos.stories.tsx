@@ -81,7 +81,8 @@ const ESPACOS = [
 const RAIOS = [
   { classe: "rounded-nenhum", token: "nenhum", uso: "Fotos." },
   { classe: "rounded-pequeno", token: "pequeno", uso: "Blocos de informação." },
-  { classe: "rounded-pilula", token: "pilula", uso: "Só na chamada do WhatsApp." },
+  { classe: "rounded-grande", token: "grande", uso: "Cartões e blocos sobre o fundo orgânico." },
+  { classe: "rounded-pilula", token: "pilula", uso: "Botões de chamada e cápsula do endereço." },
 ];
 
 // Lê o valor publicado pelo CSS, para esta página não repetir os tokens de globals.css.

@@ -7,9 +7,9 @@ export function Contato() {
   const { endereco, whatsapp, instagram } = site;
 
   return (
-    <Secao id="contato" titulo="Endereço e contato" fundo="contorno">
+    <Secao id="contato" titulo="Endereço e contato">
       <div>
-        <address className="not-italic">{endereco.texto}</address>
+        <address className="text-balance not-italic">{endereco.texto}</address>
         <LinkExterno href={endereco.mapa.url}>
           {endereco.mapa.rotulo}
         </LinkExterno>

@@ -11,8 +11,14 @@ export type Site = {
   citacoes: Citacao[];
   horarios: Turno[];
   endereco: { texto: string; mapa: Link };
-  whatsapp: { numero: string; chamada: string; url: string };
+  whatsapp: {
+    numero: string;
+    chamada: string;
+    chamadaCurta: string;
+    url: string;
+  };
   instagram: Link;
+  navegacao: Link[];
   creditos: {
     materia: { titulo: string; autora: string; veiculo?: string; url?: string };
     desenvolvimento: string;
@@ -60,12 +66,18 @@ export const site: Site = {
   whatsapp: {
     numero: "+55 11 96631-9096",
     chamada: "Enviar mensagem no WhatsApp",
+    chamadaCurta: "WhatsApp",
     url: "https://wa.me/5511966319096",
   },
   instagram: {
     rotulo: "@misturaesaboresedith",
     url: "https://www.instagram.com/misturaesaboresedith/",
   },
+  navegacao: [
+    { rotulo: "Endereço", url: "#contato" },
+    { rotulo: "Horários", url: "#horarios" },
+    { rotulo: "História", url: "#historia" },
+  ],
   creditos: {
     materia: {
       titulo: "Jardim Edite recebe Unidade Produtiva de Alimentação Solidária",

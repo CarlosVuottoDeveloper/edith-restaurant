@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-/** Logo provisório, feito de captura de tela: limitado a 480 px até chegar o original. */
+/** Logo provisório, feito de captura de tela: fica pequeno no cabeçalho até chegar o original. */
 export function LogoMarca() {
   return (
     <Image
@@ -9,8 +9,8 @@ export function LogoMarca() {
       width={958}
       height={608}
       preload
-      sizes="(min-width: 768px) 480px, 100vw"
-      className="h-auto w-full max-w-120"
+      sizes="(min-width: 768px) 192px, 144px"
+      className="h-auto w-36 md:w-48"
     />
   );
 }

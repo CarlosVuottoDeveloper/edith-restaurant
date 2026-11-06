@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Abertura } from "./Abertura";
+import { Cabecalho } from "./Cabecalho";
 import { Contato } from "./Contato";
 import { Historia } from "./Historia";
 import { Horarios } from "./Horarios";
@@ -13,9 +14,20 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const SecaoCabecalho: Story = {
+  name: "Cabeçalho",
+  parameters: { layout: "fullscreen" },
+  render: () => <Cabecalho />,
+};
+
 export const SecaoAbertura: Story = {
   name: "Abertura",
-  render: () => <Abertura />,
+  parameters: { layout: "fullscreen" },
+  render: () => (
+    <div className="relative isolate">
+      <Abertura />
+    </div>
+  ),
 };
 
 export const SecaoContato: Story = {

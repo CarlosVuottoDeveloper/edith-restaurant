@@ -14,4 +14,14 @@ const meta = {
 
 export default meta;
 
-export const WhatsApp: StoryObj<typeof meta> = {};
+type Story = StoryObj<typeof meta>;
+
+export const Principal: Story = {};
+
+export const Escuro: Story = {
+  args: {
+    variante: "escuro",
+    href: site.endereco.mapa.url,
+    children: site.endereco.mapa.rotulo,
+  },
+};

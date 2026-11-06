@@ -14,7 +14,13 @@
   --radius-*: initial;
   --radius-nenhum: 0;
   --radius-pequeno: 4px;
+  --radius-grande: 32px;
   --radius-pilula: 999px;
+
+  --shadow-*: initial;
+  --shadow-cartao: 0 16px 48px rgb(22 23 23 / 0.12);
+  --drop-shadow-*: initial;
+  --drop-shadow-prato: 0 24px 32px rgb(22 23 23 / 0.35);
 }
 
 @theme inline {
@@ -45,8 +51,8 @@
 
 @utility titulo-pagina {
   font-family: var(--font-display);
-  font-size: 56px;
-  line-height: 1.05;
+  font-size: clamp(56px, 7vw, 88px);
+  line-height: 1;
   font-weight: 700;
   text-wrap: balance;
 }

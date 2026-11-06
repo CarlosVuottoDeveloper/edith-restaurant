@@ -20,5 +20,3 @@ type Story = StoryObj<typeof meta>;
 export const Plano: Story = { args: { fundo: "plano" } };
 
 export const Cenoura: Story = { args: { fundo: "cenoura" } };
-
-export const Contorno: Story = { args: { fundo: "contorno" } };
