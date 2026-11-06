@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "computedHash": "60a9cbe5af176150582c019e16e5d3703a41bb02d88438e881349876120d7944"
+    },
+    "create-github-action-workflow-specification": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "skillPath": "skills/create-github-action-workflow-specification/SKILL.md",
+      "computedHash": "527e6c77d921d58a9d0059aa95d0d14b441d2166f9c20518263048a56ca8fbbb"
+    },
+    "deploy-to-vercel": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/deploy-to-vercel/SKILL.md",
+      "computedHash": "a024eac409b1bb2e072a19e7e0d7f194ac5482c87fb1a2ad6f62d041b454040c"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "computedHash": "3219a1944e404ffc14d1d9d6aef6dd2e3855b81387ee0a044ccbfe14d34c2357"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+    }
+  }
+}
