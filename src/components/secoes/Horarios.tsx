@@ -1,16 +1,17 @@
+import { Secao } from "@/components/ui/Secao";
 import { site } from "@/content/site";
 
 export function Horarios() {
   return (
-    <section id="horarios" className="space-y-4">
-      <h2 className="text-2xl font-bold">Horários</h2>
-      <ul className="space-y-2">
+    <Secao id="horarios" titulo="Horários" fundo="cenoura">
+      <dl className="flex flex-col gap-4">
         {site.horarios.map((turno) => (
-          <li key={turno.nome}>
-            <strong>{turno.nome}:</strong> {turno.quando}
-          </li>
+          <div key={turno.nome}>
+            <dt className="chamada">{turno.nome}</dt>
+            <dd>{turno.quando}</dd>
+          </div>
         ))}
-      </ul>
-    </section>
+      </dl>
+    </Secao>
   );
 }

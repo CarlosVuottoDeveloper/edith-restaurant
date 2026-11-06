@@ -5,6 +5,7 @@ export type Site = {
   indexavel: boolean;
   nome: string;
   descricao: string;
+  destaque: string;
   apresentacao: string;
   historia: string[];
   citacoes: Citacao[];
@@ -24,6 +25,8 @@ export const site: Site = {
   nome: "Cooperativa Mistura & Sabores Edith",
   descricao:
     "Cooperativa de moradores do Jardim Edite, na zona sul de São Paulo, que serve refeições e marmitex. Conheça a história, os horários e o endereço.",
+  // Trecho da citação de Angelita de Jesus, na seção de história.
+  destaque: "ganhar e dividir o nosso pão",
   apresentacao:
     "Uma cooperativa de alimentação formada por moradores do Conjunto Habitacional Jardim Edite, na zona sul de São Paulo, que serve refeições e marmitex para a vizinhança e para quem trabalha na região da Avenida Engenheiro Luís Carlos Berrini.",
   historia: [
