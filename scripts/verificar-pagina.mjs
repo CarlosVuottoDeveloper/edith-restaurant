@@ -39,7 +39,7 @@ const NO_HTML = [
   '<meta name="robots" content="noindex',
   'href="https://wa.me/5511966319096"',
   'href="https://www.instagram.com/misturaesaboresedith/"',
-  'href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Charles%20Coulomb',
+  'href="https://maps.app.goo.gl/ySEXUoBRwoD3YYvH7"',
 ];
 
 const NO_TEXTO = [

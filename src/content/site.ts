@@ -60,7 +60,7 @@ export const site: Site = {
     texto: "Rua Charles Coulomb, 120 - Jardim Edite, São Paulo - SP",
     mapa: {
       rotulo: "Abrir no mapa",
-      url: "https://www.google.com/maps/search/?api=1&query=Rua%20Charles%20Coulomb%2C%20120%20-%20Jardim%20Edite%2C%20S%C3%A3o%20Paulo%20-%20SP",
+      url: "https://maps.app.goo.gl/ySEXUoBRwoD3YYvH7",
     },
   },
   whatsapp: {
