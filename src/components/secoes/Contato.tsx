@@ -1,4 +1,5 @@
 import { BotaoChamada } from "@/components/ui/BotaoChamada";
+import { IconeInstagram } from "@/components/ui/IconeInstagram";
 import { LinkExterno } from "@/components/ui/LinkExterno";
 import { Secao } from "@/components/ui/Secao";
 import { site } from "@/content/site";
@@ -18,8 +19,9 @@ export function Contato() {
         <BotaoChamada href={whatsapp.url}>{whatsapp.chamada}</BotaoChamada>
         <p>{whatsapp.numero}</p>
       </div>
-      <p>
-        Instagram:{" "}
+      <p className="flex items-center gap-2">
+        <IconeInstagram className="size-5 shrink-0 text-verde-folha" />
+        <span className="sr-only">Instagram: </span>
         <LinkExterno href={instagram.url}>{instagram.rotulo}</LinkExterno>
       </p>
     </Secao>

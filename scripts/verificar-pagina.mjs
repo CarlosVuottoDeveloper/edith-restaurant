@@ -40,6 +40,8 @@ const NO_HTML = [
   'href="https://wa.me/5511966319096"',
   'href="https://www.instagram.com/misturaesaboresedith/"',
   'href="https://maps.app.goo.gl/ySEXUoBRwoD3YYvH7"',
+  'aria-label="Instagram"',
+  "fachada-mistura-sabores.jpg",
 ];
 
 const NO_TEXTO = [
@@ -58,7 +60,7 @@ const NO_TEXTO = [
 ];
 
 const PROIBIDO =
-  /card[aá]pio|coffee break|pre[cç]o|R\$|\bpedidos?\b|pe[cç]a agora|\bencomend|delivery|\breserv(a|as|ar|e)\b|undefined|Jardim Edith|Sabores Edite|\b(19|20)\d{2}\b/i;
+  /foto em breve|card[aá]pio|coffee break|pre[cç]o|R\$|\bpedidos?\b|pe[cç]a agora|\bencomend|delivery|\breserv(a|as|ar|e)\b|undefined|Jardim Edith|Sabores Edite|\b(19|20)\d{2}\b/i;
 
 const falhas = [];
 for (const trecho of NO_HTML) {

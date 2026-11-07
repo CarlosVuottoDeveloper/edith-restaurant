@@ -1,5 +1,5 @@
 import { Citacao } from "@/components/ui/Citacao";
-import { FotoReservada } from "@/components/ui/FotoReservada";
+import { FotoFachada } from "@/components/ui/FotoFachada";
 import { Secao } from "@/components/ui/Secao";
 import { site } from "@/content/site";
 
@@ -14,7 +14,7 @@ export function Historia() {
             </p>
           ))}
         </div>
-        <FotoReservada rotulo="as pessoas da cooperativa" proporcao="4 / 3" />
+        <FotoFachada />
       </div>
       <div className="grid gap-8 pt-4 md:grid-cols-2">
         {site.citacoes.map((citacao) => (

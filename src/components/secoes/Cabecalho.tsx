@@ -1,4 +1,5 @@
 import { BotaoChamada } from "@/components/ui/BotaoChamada";
+import { IconeInstagram } from "@/components/ui/IconeInstagram";
 import { LogoMarca } from "@/components/ui/LogoMarca";
 import { site } from "@/content/site";
 
@@ -18,9 +19,20 @@ export function Cabecalho() {
             ))}
           </ul>
         </nav>
-        <BotaoChamada href={site.whatsapp.url} variante="escuro">
-          {site.whatsapp.chamadaCurta}
-        </BotaoChamada>
+        <div className="flex items-center gap-2">
+          <BotaoChamada href={site.whatsapp.url} variante="escuro">
+            {site.whatsapp.chamadaCurta}
+          </BotaoChamada>
+          <a
+            href={site.instagram.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="inline-flex size-11 shrink-0 items-center justify-center rounded-pilula hover:bg-tinta hover:text-superficie"
+          >
+            <IconeInstagram className="size-6" />
+          </a>
+        </div>
       </div>
     </header>
   );

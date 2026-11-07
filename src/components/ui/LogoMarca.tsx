@@ -10,7 +10,7 @@ export function LogoMarca() {
       height={608}
       preload
       sizes="(min-width: 768px) 192px, 144px"
-      className="h-auto w-36 md:w-48"
+      className="h-auto w-36 min-w-0 md:w-48"
     />
   );
 }
