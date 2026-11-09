@@ -1,0 +1,52 @@
+# On every push to main: check the site and bump the version in its own commit.
+# Vercel only deploys that release commit to production (see vercel.json),
+# so a push that fails the checks never reaches the site.
+# Commits made with GITHUB_TOKEN do not trigger workflows, so there is no loop.
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+# Consecutive pushes wait in line, so two releases never race for main.
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.x
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npx tsc --noEmit
+
+      - name: Check the built page
+        run: |
+          npx next start -p 3100 &
+          for _ in $(seq 1 30); do
+            curl -s -o /dev/null http://localhost:3100 && break
+            sleep 1
+          done
+          node scripts/check-page.mjs http://localhost:3100
+
+      - name: Bump the version
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npm version patch -m "chore(release): %s"
+          git push origin main --follow-tags

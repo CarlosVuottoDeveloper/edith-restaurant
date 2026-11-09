@@ -1,35 +1,35 @@
 @import "tailwindcss";
 
-/* Tokens do design system Mistura & Sabores Edith. */
+/* Mistura & Sabores Edith design system tokens. */
 @theme {
   --color-*: initial;
-  --color-superficie: #ffffff;
-  --color-tinta: #161717;
-  --color-verde-folha: #3a4325;
-  --color-vermelho-beterraba: #c72835;
-  --color-verde-mistura: #588859;
-  --color-azul-panela: #6b9ca6;
-  --color-laranja-cenoura: #e89b35;
+  --color-surface: #ffffff;
+  --color-ink: #161717;
+  --color-leaf-green: #3a4325;
+  --color-beet-red: #c72835;
+  --color-brand-green: #588859;
+  --color-pot-blue: #6b9ca6;
+  --color-carrot-orange: #e89b35;
 
   --radius-*: initial;
-  --radius-nenhum: 0;
-  --radius-pequeno: 4px;
-  --radius-grande: 32px;
-  --radius-pilula: 999px;
+  --radius-none: 0;
+  --radius-small: 4px;
+  --radius-large: 32px;
+  --radius-pill: 999px;
 
   --shadow-*: initial;
-  --shadow-cartao: 0 16px 48px rgb(22 23 23 / 0.12);
+  --shadow-card: 0 16px 48px rgb(22 23 23 / 0.12);
   --drop-shadow-*: initial;
-  --drop-shadow-prato: 0 24px 32px rgb(22 23 23 / 0.35);
+  --drop-shadow-plate: 0 24px 32px rgb(22 23 23 / 0.35);
 }
 
 @theme inline {
   --font-display: var(--font-amatic), "Arial Narrow", sans-serif;
-  --font-manuscrita: var(--font-reenie), cursive;
-  --font-texto: var(--font-source-sans), system-ui, sans-serif;
+  --font-handwriting: var(--font-reenie), cursive;
+  --font-body: var(--font-source-sans), system-ui, sans-serif;
 }
 
-/* Espaçamentos do sistema: use só as classes de escala 2 (8px), 4 (16px), 8 (32px) e 16 (64px). */
+/* System spacing: only use scale classes 2 (8px), 4 (16px), 8 (32px) and 16 (64px). */
 
 @layer base {
   html {
@@ -37,19 +37,19 @@
   }
 
   body {
-    background-color: var(--color-superficie);
-    color: var(--color-tinta);
-    font-family: var(--font-texto);
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-body);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-verde-folha);
+    outline: 2px solid var(--color-leaf-green);
     outline-offset: 2px;
-    border-radius: var(--radius-pequeno);
+    border-radius: var(--radius-small);
   }
 }
 
-@utility titulo-pagina {
+@utility page-title {
   font-family: var(--font-display);
   font-size: clamp(56px, 7vw, 88px);
   line-height: 1;
@@ -57,7 +57,7 @@
   text-wrap: balance;
 }
 
-@utility titulo-secao {
+@utility section-title {
   font-family: var(--font-display);
   font-size: 40px;
   line-height: 1.1;
@@ -65,27 +65,27 @@
   text-wrap: balance;
 }
 
-@utility destaque {
-  font-family: var(--font-manuscrita);
+@utility tagline {
+  font-family: var(--font-handwriting);
   font-size: 40px;
   line-height: 1.1;
   font-weight: 400;
   text-wrap: balance;
 }
 
-@utility corpo {
+@utility body-copy {
   font-size: 18px;
   line-height: 28px;
   font-weight: 400;
 }
 
-@utility chamada {
+@utility label-copy {
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
 }
 
-@utility legenda {
+@utility caption {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;

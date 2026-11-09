@@ -7,7 +7,7 @@ const config: StorybookConfig = {
   framework: "@storybook/nextjs-vite",
   staticDirs: ["../public"],
   core: { disableTelemetry: true },
-  // O site usa o loader do Turbopack; o Storybook roda em Vite e precisa do plugin equivalente.
+  // The site uses the Turbopack loader; Storybook runs on Vite and needs the equivalent plugin.
   viteFinal: (viteConfig) => ({
     ...viteConfig,
     plugins: [...(viteConfig.plugins ?? []), tailwindcss()],

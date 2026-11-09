@@ -1,11 +1,11 @@
 import type { Preview } from "@storybook/nextjs-vite";
-import { classesFontes } from "../src/app/fontes";
+import { fontClasses } from "../src/app/fonts";
 import "../src/app/globals.css";
 
-// Mesmo ponto de partida do layout do site: as variáveis de fonte precisam estar no <html>.
+// Same starting point as the site layout: the font variables must be on <html>.
 document.documentElement.lang = "pt-BR";
-document.documentElement.classList.add(...classesFontes);
-document.body.classList.add("corpo");
+document.documentElement.classList.add(...fontClasses);
+document.body.classList.add("body-copy");
 
 const preview: Preview = {
   parameters: {
@@ -13,8 +13,8 @@ const preview: Preview = {
     a11y: { test: "todo" },
     viewport: {
       options: {
-        celular: {
-          name: "Celular (360 px)",
+        mobile: {
+          name: "Mobile (360 px)",
           styles: { width: "360px", height: "740px" },
           type: "mobile",
         },
@@ -27,7 +27,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ["Fundamentos", "Componentes", "Seções", "Página"],
+        order: ["Foundations", "Components", "Sections", "Page"],
       },
     },
   },

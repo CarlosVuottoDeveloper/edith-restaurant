@@ -1,88 +1,100 @@
-export type Turno = { nome: string; quando: string };
-export type Citacao = { texto: string; autoria: string };
-export type Link = { rotulo: string; url: string };
+export type Shift = { name: string; when: string };
+export type Quote = { text: string; attribution: string };
+export type Link = { label: string; url: string };
+export type Photo = { src: string; alt: string };
 export type Site = {
-  indexavel: boolean;
-  nome: string;
-  descricao: string;
-  destaque: string;
-  apresentacao: string;
-  historia: string[];
-  citacoes: Citacao[];
-  horarios: Turno[];
-  endereco: { texto: string; mapa: Link };
+  indexable: boolean;
+  name: string;
+  description: string;
+  tagline: string;
+  intro: string;
+  history: string[];
+  quotes: Quote[];
+  hours: Shift[];
+  dishes: Photo[];
+  address: { text: string; map: Link };
   whatsapp: {
-    numero: string;
-    chamada: string;
-    chamadaCurta: string;
+    number: string;
+    cta: string;
+    shortCta: string;
     url: string;
   };
   instagram: Link;
-  navegacao: Link[];
-  creditos: {
-    materia: { titulo: string; autora: string; veiculo?: string; url?: string };
-    desenvolvimento: string;
+  navigation: Link[];
+  credits: {
+    article: { title: string; author: string; outlet?: string; url?: string };
+    development: string;
   };
 };
 
 export const site: Site = {
-  // Fica false até o lançamento: mantém a página fora dos buscadores.
-  indexavel: false,
-  nome: "Cooperativa Mistura & Sabores Edith",
-  descricao:
+  // Stays false until launch: keeps the page out of search engines.
+  indexable: false,
+  name: "Cooperativa Mistura & Sabores Edith",
+  description:
     "Cooperativa de moradores do Jardim Edite, na zona sul de São Paulo, que serve refeições e marmitex. Conheça a história, os horários e o endereço.",
-  // Trecho da citação de Angelita de Jesus, na seção de história.
-  destaque: "ganhar e dividir o nosso pão",
-  apresentacao:
+  // Excerpt from Angelita de Jesus's quote, shown in the history section.
+  tagline: "ganhar e dividir o nosso pão",
+  intro:
     "Uma cooperativa de alimentação formada por moradores do Conjunto Habitacional Jardim Edite, na zona sul de São Paulo, que serve refeições e marmitex para a vizinhança e para quem trabalha na região da Avenida Engenheiro Luís Carlos Berrini.",
-  historia: [
+  history: [
     "A Unidade Produtiva de Alimentação Solidária foi inaugurada no Jardim Edite como parte do projeto “Economia Solidária como Estratégia de Desenvolvimento”, da Secretaria Municipal do Desenvolvimento, Trabalho e Empreendedorismo (SDTE), em parceria com a Central de Cooperativas e Empreendimentos Solidários (Unisol Brasil).",
     "Na inauguração, o coletivo reunia dezesseis moradores do conjunto habitacional e era acompanhado pela Incubadora Pública de Empreendimentos Solidários. As cozinheiras passaram por uma incubação, em que aprenderam a manipulação dos alimentos e a gestão de um negócio.",
     "O grupo se formalizou como cooperativa, com Estatuto Social e Conselhos Fiscal e Administrativo próprios.",
   ],
-  citacoes: [
+  quotes: [
     {
-      texto:
-        "Queremos ser espelho para essa nova economia, sem patrão, mas com o mesmo intuito de ganhar e dividir o nosso pão, dando e mostrando o verdadeiro jeito de trabalho e renda justa para o coletivo.",
-      autoria: "Angelita de Jesus, presidente da Cooperativa na época da matéria",
+      text: "Queremos ser espelho para essa nova economia, sem patrão, mas com o mesmo intuito de ganhar e dividir o nosso pão, dando e mostrando o verdadeiro jeito de trabalho e renda justa para o coletivo.",
+      attribution:
+        "Angelita de Jesus, presidente da Cooperativa na época da matéria",
     },
     {
-      texto:
-        "Acredito que esse projeto vai mudar as nossas vidas, inclusive para a independência de nós, mulheres, e queremos oferecer alimentos de qualidade e fazer o bem.",
-      autoria: "Cícera Lacerda, sócia-cooperada",
+      text: "Acredito que esse projeto vai mudar as nossas vidas, inclusive para a independência de nós, mulheres, e queremos oferecer alimentos de qualidade e fazer o bem.",
+      attribution: "Cícera Lacerda, sócia-cooperada",
     },
   ],
-  horarios: [
-    { nome: "Almoço", quando: "Segunda a sexta, das 11h às 15h" },
-    { nome: "Happy hour", quando: "Sextas, das 17h às 22h" },
+  hours: [{ name: "Almoço", when: "Segunda a sexta, das 11h às 15h" }],
+  dishes: [
+    {
+      src: "/dish-grilled-chicken.jpg",
+      alt: "Prato com filé de frango grelhado sobre alface, arroz e salada de cenoura e tomate, com feijão à parte",
+    },
+    {
+      src: "/dish-stroganoff.jpg",
+      alt: "Prato com arroz, batata palha e salada, acompanhado de estrogonofe e feijão em tigelas",
+    },
+    {
+      src: "/dish-grilled-steak.jpg",
+      alt: "Prato visto de cima com carne grelhada coberta de cebola, arroz e salada, com feijão e farofa à parte",
+    },
   ],
-  endereco: {
-    texto: "Rua Charles Coulomb, 120 - Jardim Edite, São Paulo - SP",
-    mapa: {
-      rotulo: "Abrir no mapa",
+  address: {
+    text: "Rua Charles Coulomb, 120 - Jardim Edite, São Paulo - SP",
+    map: {
+      label: "Abrir no mapa",
       url: "https://maps.app.goo.gl/ySEXUoBRwoD3YYvH7",
     },
   },
   whatsapp: {
-    numero: "+55 11 96631-9096",
-    chamada: "Enviar mensagem no WhatsApp",
-    chamadaCurta: "WhatsApp",
+    number: "+55 11 96631-9096",
+    cta: "Enviar mensagem no WhatsApp",
+    shortCta: "WhatsApp",
     url: "https://wa.me/5511966319096",
   },
   instagram: {
-    rotulo: "@misturaesaboresedith",
+    label: "@misturaesaboresedith",
     url: "https://www.instagram.com/misturaesaboresedith/",
   },
-  navegacao: [
-    { rotulo: "Endereço", url: "#contato" },
-    { rotulo: "Horários", url: "#horarios" },
-    { rotulo: "História", url: "#historia" },
+  navigation: [
+    { label: "Endereço", url: "#contact" },
+    { label: "Horários", url: "#hours" },
+    { label: "História", url: "#history" },
   ],
-  creditos: {
-    materia: {
-      titulo: "Jardim Edite recebe Unidade Produtiva de Alimentação Solidária",
-      autora: "Juliana Mota",
+  credits: {
+    article: {
+      title: "Jardim Edite recebe Unidade Produtiva de Alimentação Solidária",
+      author: "Juliana Mota",
     },
-    desenvolvimento: "Carlos Vuotto",
+    development: "Carlos Vuotto",
   },
 };
